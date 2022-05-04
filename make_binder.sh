@@ -1,0 +1,2 @@
+# python3 make_bindings_via_cmake.py --binder-executable /usr/local/bin/binder --output-directory cmake_bindings --module-name pulchra --namespace-to-bind pulchra --project-source cpp_src --source-directories-to-include /build/pybind11/include --config-file config.cfg 
+python3 make_bindings_via_cmake.py --binder-executable /usr/local/bin/binder --output-directory cmake_bindings --module-name pypulchra  --project-source src --config-file config.cfg --pybind11-source /build/pybind11
