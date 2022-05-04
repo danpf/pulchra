@@ -3302,7 +3302,7 @@ struct Pulchra {
 			std::ofstream out((std::string(output_pdb_name)));
 			out << result.pdb_str;
 		}
-		if (!result.traj_pdb_str.empty() and output_traj_pdb_name) {
+		if (!result.traj_pdb_str.empty() && output_traj_pdb_name) {
 			std::ofstream out((std::string(output_traj_pdb_name)));
 			out << result.traj_pdb_str;
 		}
