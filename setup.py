@@ -26,6 +26,7 @@ setup(
     author="Danny Farrell",
     author_email="danpfuw@gmail.com",
     description="Python bindings for the pulchra CA -> full bb trace library",
+    url="https://github.com/danpf/pulchra",
     long_description="",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
