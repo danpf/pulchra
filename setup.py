@@ -1,6 +1,8 @@
 # Available at setup time due to pyproject.toml
+from pathlib import Path
+
 from pybind11.setup_helpers import Pybind11Extension
-from setuptools import setup, find_packages
+from setuptools import setup
 
 __version__ = "1.0.0"
 
@@ -20,14 +22,18 @@ ext_modules = [
 ]
 
 
+SHORT_DESC = "Python bindings for the pulchra CA -> full bb trace library"
+readme = (Path(__file__).parent / "README.rst").resolve()
+LONG_DESC = SHORT_DESC + "\n" + open(readme).read()
+
 setup(
     name="pypulchra",
     version=__version__,
     author="Danny Farrell",
     author_email="danpfuw@gmail.com",
-    description="Python bindings for the pulchra CA -> full bb trace library",
+    description=SHORT_DESC,
     url="https://github.com/danpf/pulchra",
-    long_description="",
+    long_description=LONG_DESC,
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Topic :: Scientific/Engineering :: Bio-Informatics",
@@ -36,7 +42,8 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11"],
+        "Programming Language :: Python :: 3.11",
+    ],
     ext_modules=ext_modules,
     zip_safe=False,
     # extras_require={"test": ["pytest>=6.0"]},
