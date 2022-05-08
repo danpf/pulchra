@@ -1,8 +1,7 @@
-
-
 import sys
 from typing import List
 import argparse
+
 from ._pypulchra import pulchra, run_from_pdb_str
 
 
@@ -13,8 +12,8 @@ def _parseargs(raw_args: List[str]) -> argparse.Namespace:
     return parser.parse_args(raw_args)
 
 
-def _commandline():
-    args = parseargs(sys.argv[1:])
+def _commandline() -> None:
+    args = _parseargs(sys.argv[1:])
     with open(args.input_pdb) as fh:
         pdb_text = fh.read()
     ret = run_from_pdb_str(pdb_text)
@@ -22,4 +21,3 @@ def _commandline():
         raise RuntimeError("Failure to generate any pdb text")
     with open(args.output_pdb, "w") as fh:
         fh.write(ret.pdb_str)
-

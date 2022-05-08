@@ -1,4 +1,3 @@
-
 from pathlib import Path
 from subprocess import check_output
 
@@ -20,6 +19,7 @@ def main():
     assert not out_pdb_fn.is_file()
     check_output(["pypulchra", "-i", str(pdb_fn), "-o", str(out_pdb_fn)])
     assert out_pdb_fn.is_file()
+    check_output(["rm", str(out_pdb_fn)])
 
 
 if __name__ == "__main__":
