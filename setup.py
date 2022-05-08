@@ -1,6 +1,6 @@
 # Available at setup time due to pyproject.toml
 from pybind11.setup_helpers import Pybind11Extension
-from setuptools import setup
+from setuptools import setup, find_packages
 
 __version__ = "1.0.0"
 
@@ -10,7 +10,7 @@ __version__ = "1.0.0"
 #   say from a submodule.
 ext_modules = [
     Pybind11Extension(
-        "pypulchra",
+        "pypulchra._pypulchra",
         ["src/pulchra.cpp", "bindings/python/pulchra_bindings.cpp", "bindings/python/pypulchra_bindings.cpp"],
         include_dirs=["src"],
         define_macros=[("VERSION_INFO", __version__)],
@@ -27,9 +27,23 @@ setup(
     author_email="danpfuw@gmail.com",
     description="Python bindings for the pulchra CA -> full bb trace library",
     long_description="",
+    classifiers=[
+        "Development Status :: 5 - Production/Stable",
+        "Topic :: Scientific/Engineering :: Bio-Informatics",
+        "Topic :: Scientific/Engineering",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11"],
     ext_modules=ext_modules,
     zip_safe=False,
     # extras_require={"test": ["pytest>=6.0"]},
-    python_requires=">=3.6",
+    python_requires=">=3.7",
+    packages=["pypulchra"],
+    entry_points={
+        "console_scripts": [
+            "pypulchra = pypulchra:_commandline",
+        ],
+    },
 )
-

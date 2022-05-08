@@ -12,8 +12,8 @@ typedef std::function< pybind11::module & (std::string const &) > ModuleGetter;
 void bind_pulchra(std::function< pybind11::module &(std::string const &namespace_) > &M);
 
 
-PYBIND11_MODULE(pypulchra, root_module) {
-	root_module.doc() = "pypulchra module";
+PYBIND11_MODULE(_pypulchra, root_module) {
+	root_module.doc() = "_pypulchra module";
 
 	std::map <std::string, pybind11::module> modules;
 	ModuleGetter M = [&](std::string const &namespace_) -> pybind11::module & {
@@ -33,10 +33,10 @@ PYBIND11_MODULE(pypulchra, root_module) {
 		}
 	);
 
-	std::vector< std::pair<std::string, std::string> > sub_modules {
+	std::vector< std::pair<std::string, std::string> > const sub_modules {
 		{"", "pulchra"},
 	};
-	for(auto &p : sub_modules ) modules[p.first.size() ? p.first+"::"+p.second : p.second] = modules[p.first].def_submodule( mangle_namespace_name(p.second).c_str(), ("Bindings for " + p.first + "::" + p.second + " namespace").c_str() );
+	for(auto const &p : sub_modules ) modules[p.first.size() ? p.first+"::"+p.second : p.second] = modules[p.first].def_submodule( mangle_namespace_name(p.second).c_str(), ("Bindings for " + p.first + "::" + p.second + " namespace").c_str() );
 
 	//pybind11::class_<std::shared_ptr<void>>(M(""), "_encapsulated_data_");
 

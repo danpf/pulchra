@@ -1350,7 +1350,7 @@ struct Pulchra {
 								int &_anum) {
 			char buff_xx[1000];
 			snprintf(buff_xx, sizeof(buff_xx), "ATOM  %5d  %-3s %3s %c%4d    %8.3f%8.3f%8.3f",
-					_anum++, _atom.name.c_str(), _res.name.c_str(), ' ', _res.num, _atom.x,
+					_anum++, _atom.name.c_str(), _res.name.c_str(), _res.chain, _res.num, _atom.x,
 					_atom.y, _atom.z);
 			return std::string(buff_xx);
 		};
@@ -3101,6 +3101,7 @@ struct Pulchra {
 			if (_VERBOSE) printf("%d residua read.\n", chain->nres);
 			return run_from_mol(chain);
 		} else {
+			printf("Failure to read pdb_str len: %d", (int)pdb_str.size());
 			return PulchraResult("", "");
 		}
 	}
