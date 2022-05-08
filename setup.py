@@ -34,6 +34,7 @@ setup(
     description=SHORT_DESC,
     url="https://github.com/danpf/pulchra",
     long_description=LONG_DESC,
+    long_description_content_type="text/x-rst",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Topic :: Scientific/Engineering :: Bio-Informatics",
