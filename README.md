@@ -30,10 +30,12 @@ see `pypulchra/__init__.py`
 
 
 
-## Notes
+## Notes/TODOs
 
 Bindings initially generated with  
 https://github.com/RosettaCommons/binder
+
+[ ] add cif support
 
 
 PULCHRA User's Manual

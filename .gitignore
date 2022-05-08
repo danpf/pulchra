@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# random stuff
+.ccls-cache
+
 # C extensions
 *.so
 
