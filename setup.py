@@ -24,9 +24,7 @@ ext_modules = [
 
 SHORT_DESC = "Python bindings for the pulchra CA -> full bb trace library"
 readme = (Path(__file__).parent / "README.rst").resolve()
-print(readme)
-print(Path(readme).is_file())
-LONG_DESC = SHORT_DESC + "\n" + open(readme).read()
+LONG_DESC = SHORT_DESC + "\n" + open(readme, encoding="utf-8").read()
 
 setup(
     name="pypulchra",
