@@ -1,6 +1,11 @@
 import sys
 from typing import List
 import argparse
+import glob
+from pathlib import Path
+
+print(__file__)
+print(list(sorted(glob.glob(str(Path(__file__) / "*" )))))
 
 from ._pypulchra import pulchra as pulchra, run_from_pdb_str as run_from_pdb_str
 
