@@ -67,6 +67,7 @@ jobs:
 
     - name: Test
       run: |
+        ls
         cd ./tests
         python test.py
 
