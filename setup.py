@@ -52,7 +52,7 @@ setup(
     packages=["pypulchra"],
     entry_points={
         "console_scripts": [
-            "pypulchra = pypulchra:_commandline",
+            "pypulchra = pypulchra:commandline",
         ],
     },
 )

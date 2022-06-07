@@ -32,7 +32,9 @@ jobs:
       run: pip install --verbose .
 
     - name: Test
-      run: python tests/test.py
+      run: |
+        ls *
+        run: python tests/test.py
 
   # mingw doesn't work because it uses too much memory for github
   build-mingw64:
@@ -64,5 +66,7 @@ jobs:
       run: pip install --no-build-isolation .
 
     - name: Test
-      run: python tests/test.py
+      run: |
+        ls *
+        python tests/test.py
 
