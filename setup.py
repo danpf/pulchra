@@ -24,6 +24,8 @@ ext_modules = [
 
 SHORT_DESC = "Python bindings for the pulchra CA -> full bb trace library"
 readme = (Path(__file__).parent / "README.rst").resolve()
+print(readme)
+print(Path(readme).is_file())
 LONG_DESC = SHORT_DESC + "\n" + open(readme).read()
 
 setup(
@@ -45,7 +47,7 @@ setup(
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
     ],
-    ext_modules=ext_modules,
+    ext_modules=ext_modules,  # type: ignore
     zip_safe=False,
     # extras_require={"test": ["pytest>=6.0"]},
     python_requires=">=3.7",

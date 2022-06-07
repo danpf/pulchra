@@ -34,6 +34,7 @@ jobs:
     - name: Test
       run: python tests/test.py
 
+  # # mingw doesn't work because it uses too much memory for github
   # build-mingw64:
   #   runs-on: windows-latest
   #   defaults:
