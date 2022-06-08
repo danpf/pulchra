@@ -68,10 +68,12 @@ jobs:
     - name: Test
       run: |
         ls
+        env
         where python
         cd ./tests
         ls
         env
         where python
+        python --version
         python ./test.py
 
