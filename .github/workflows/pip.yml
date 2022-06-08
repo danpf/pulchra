@@ -70,5 +70,5 @@ jobs:
         ls
         cd ./tests
         ls
-        python test.py
+        python ./test.py
 
