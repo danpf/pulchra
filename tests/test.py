@@ -14,14 +14,18 @@ def main():
     assert " N " not in input_pdb_text
     ret = run_from_pdb_str(input_pdb_text)
     assert " N " in ret.pdb_str
+    print("halfway")
 
     out_pdb_fn = Path("__out.pdb")
     if out_pdb_fn.is_file():
         check_output(["rm", str(out_pdb_fn)])
+    print("2halfway")
     assert not out_pdb_fn.is_file()
     check_output(["pypulchra", "-i", str(pdb_fn), "-o", str(out_pdb_fn)])
+    print("3halfway")
     assert out_pdb_fn.is_file()
     check_output(["rm", str(out_pdb_fn)])
+    print("4halfway")
 
 
 if __name__ == "__main__":
