@@ -16,12 +16,12 @@ def main():
     with open(pdb_fn, encoding="utf8") as fh:
         input_pdb_text = fh.read()
     print("x2?")
-    # assert " N " not in input_pdb_text
-    # print("xx22e")
-    # ret = run_from_pdb_str(input_pdb_text)
-    # print("xx2tyy")
-    # assert " N " in ret.pdb_str
-    # print("halfway")
+    assert " N " not in input_pdb_text
+    print("xx22e")
+    ret = run_from_pdb_str(input_pdb_text)
+    print("xx2tyy")
+    assert " N " in ret.pdb_str
+    print("halfway")
     #
     # out_pdb_fn = Path("__out.pdb")
     # if out_pdb_fn.is_file():
