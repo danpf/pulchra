@@ -18,7 +18,7 @@ def main():
     print("x2?")
     assert " N " not in input_pdb_text
     print("xx22e")
-    # ret = run_from_pdb_str(input_pdb_text)
+    ret = run_from_pdb_str(input_pdb_text)
     # print("xx2tyy")
     # assert " N " in ret.pdb_str
     # print("halfway")
