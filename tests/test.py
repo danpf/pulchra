@@ -7,8 +7,10 @@ from pypulchra import run_from_pdb_str
 
 
 def main():
+    print("main?")
     thisdir = Path(__file__).parent.resolve()
-    pdb_fn = Path(thisdir, "2ily_CA.pdb")
+    pdb_fn = Path(thisdir) / "2ily_CA.pdb"
+    print("s", pdb_fn)
     with open(pdb_fn) as fh:
         input_pdb_text = fh.read()
     assert " N " not in input_pdb_text
