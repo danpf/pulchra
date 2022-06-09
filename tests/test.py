@@ -1,10 +1,12 @@
 #!/usr/bin/env python
+print("start?")
 
 from pathlib import Path
 from subprocess import check_output
 
 from pypulchra import run_from_pdb_str
 
+print("post import?")
 
 def main():
     print("main?")
@@ -30,5 +32,6 @@ def main():
     print("4halfway")
 
 
+print("about to main import?")
 if __name__ == "__main__":
     main()
