@@ -68,6 +68,7 @@ jobs:
     - name: Test
       run: |
         ls
+        pwd
         env
         where python
         cd ./tests
@@ -75,5 +76,6 @@ jobs:
         env
         where python
         python --version
+        pwd
         python ./test.py
 
