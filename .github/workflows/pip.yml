@@ -77,5 +77,6 @@ jobs:
         where python
         python --version
         pwd
+        python -c "print('hello world')"
         python ./test.py
 
