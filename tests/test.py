@@ -13,12 +13,12 @@ def main():
     thisdir = Path(__file__).parent.resolve()
     pdb_fn = Path(thisdir) / "2ily_CA.pdb"
     print("s", pdb_fn)
-    # with open(pdb_fn) as fh:
-    #     input_pdb_text = fh.read()
-    # assert " N " not in input_pdb_text
-    # ret = run_from_pdb_str(input_pdb_text)
-    # assert " N " in ret.pdb_str
-    # print("halfway")
+    with open(pdb_fn) as fh:
+        input_pdb_text = fh.read()
+    assert " N " not in input_pdb_text
+    ret = run_from_pdb_str(input_pdb_text)
+    assert " N " in ret.pdb_str
+    print("halfway")
     #
     # out_pdb_fn = Path("__out.pdb")
     # if out_pdb_fn.is_file():
