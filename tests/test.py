@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 from pathlib import Path
 from subprocess import check_output
 
@@ -6,8 +8,8 @@ from pypulchra import run_from_pdb_str
 
 def main():
     thisdir = Path(__file__).parent.resolve()
-    pdb_fn = Path(thisdir, "2ily_CA.pdb")
-    with open(pdb_fn) as fh:
+    pdb_fn = Path(thisdir) / "2ily_CA.pdb"
+    with open(pdb_fn, encoding="utf8") as fh:
         input_pdb_text = fh.read()
     assert " N " not in input_pdb_text
     ret = run_from_pdb_str(input_pdb_text)

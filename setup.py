@@ -4,7 +4,7 @@ from pathlib import Path
 from pybind11.setup_helpers import Pybind11Extension
 from setuptools import setup
 
-__version__ = "1.0.1"
+__version__ = "1.0.2"
 
 # The main interface is through Pybind11Extension.
 # * You can add cxx_std=11/14/17, and then build_ext can be removed.
@@ -24,7 +24,7 @@ ext_modules = [
 
 SHORT_DESC = "Python bindings for the pulchra CA -> full bb trace library"
 readme = (Path(__file__).parent / "README.rst").resolve()
-LONG_DESC = SHORT_DESC + "\n" + open(readme).read()
+LONG_DESC = SHORT_DESC + "\n" + open(readme, encoding="utf-8").read()
 
 setup(
     name="pypulchra",
@@ -45,14 +45,14 @@ setup(
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
     ],
-    ext_modules=ext_modules,
+    ext_modules=ext_modules,  # type: ignore
     zip_safe=False,
     # extras_require={"test": ["pytest>=6.0"]},
     python_requires=">=3.7",
     packages=["pypulchra"],
     entry_points={
         "console_scripts": [
-            "pypulchra = pypulchra:_commandline",
+            "pypulchra = pypulchra:commandline",
         ],
     },
 )
