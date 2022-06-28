@@ -7,6 +7,10 @@ Description
 Modified PULCHRA 3.07 release for c++ / python library. Turn CA pdbs
 into full-atom pdbs
 
+Python bindings of the pulchra C library that are built upon  pip install
+
+This library will convert CA traces of pdb files to full atom pdb files
+
 Installation
 ------------
 
