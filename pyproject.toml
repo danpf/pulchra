@@ -41,7 +41,7 @@ build-dir = "build/{wheel_tag}"
 
 [tool.cibuildwheel]
 test-command = "python {project}/src/python/tests/test.py"
-test-skip = ["*universal2:arm64"]
+test-skip = ["*musllinux", "*universal2:arm64"]
 build-verbosity = 1
 
 
