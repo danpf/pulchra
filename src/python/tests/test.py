@@ -1,13 +1,14 @@
 #!/usr/bin/env python
 
-from pathlib import Path
-from subprocess import check_output
 import tempfile
 import unittest
+from pathlib import Path
+from subprocess import check_output
 
 from pypulchra import run_from_pdb_str
 
 PYPULCHRA_TEST_DIR = Path(__file__).parent
+
 
 class TestPyPulchra(unittest.TestCase):
     def setUp(self):
@@ -27,3 +28,7 @@ class TestPyPulchra(unittest.TestCase):
         out_pdb_fn = Path(self.temp_dir.name) / "pypulchra_output.pdb"
         check_output(["pypulchra", "-i", str(pdb_fn), "-o", str(out_pdb_fn)])
         self.assertTrue(out_pdb_fn.is_file())
+
+
+if __name__ == "__main__":
+    unittest.main()
