@@ -1,14 +1,27 @@
-import sys
-from typing import List
 import argparse
+import sys
 
-from ._pypulchra import pulchra as pulchra, run_from_pdb_str as run_from_pdb_str
+from ._pypulchra import pulchra as pulchra
+from ._pypulchra import run_from_pdb_str as run_from_pdb_str
+
+try:
+    from ._version import version as __version__
+    from ._version import version_tuple as version_tuple
+except ImportError:
+    __version__ = "unknown version"
+    version_tuple = (0, 0, "unknown version")
 
 
-def parseargs(raw_args: List[str]) -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Pulchra protein pdb/cif CA -> fullatom algorithm.")
-    parser.add_argument("-i", "--input-pdb", required=True, help="The pdb file you want as input")
-    parser.add_argument("-o", "--output-pdb", required=True, help="The pdb file you want as output")
+def parseargs(raw_args: list[str]) -> argparse.Namespace:
+    parser = argparse.ArgumentParser(
+        description="Pulchra protein pdb/cif CA -> fullatom algorithm."
+    )
+    parser.add_argument(
+        "-i", "--input-pdb", required=True, help="The pdb file you want as input"
+    )
+    parser.add_argument(
+        "-o", "--output-pdb", required=True, help="The pdb file you want as output"
+    )
     return parser.parse_args(raw_args)
 
 

@@ -38,6 +38,7 @@ cmake.source-dir = "."
 wheel.packages = ["src/python/pypulchra"]
 # Uncomment during development
 build-dir = "build/{wheel_tag}"
+metadata.version.provider = "scikit_build_core.metadata.setuptools_scm"
 
 [tool.cibuildwheel]
 test-command = "python {project}/src/python/tests/test.py"
@@ -45,6 +46,8 @@ test-skip = ["*universal2:arm64"]
 skip = "*-win32 pp*win* *musllinux*"
 build-verbosity = 1
 
+[tool.setuptools_scm]
+write_to = "src/python/pypulchra/_version.py"
 
 [tool.ruff]
 src = ["src/python"]
