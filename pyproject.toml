@@ -1,6 +1,5 @@
 [project]
 name = "pypulchra"
-version = "1.1.0"
 description="Python bindings for the pulchra CA -> full bb trace library"
 readme = "README.rst"
 url = "https://github.com/danpf/pulchra"
@@ -21,6 +20,7 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
 ]
+dynamic = ["version"]
 
 [project.scripts]
 pypulchra = "pypulchra:commandline"

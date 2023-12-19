@@ -1,9 +1,27 @@
 cmake_minimum_required(VERSION 3.15...3.26)
 
+# Version based on repo tag
+execute_process(
+    COMMAND git describe --exact-match --tags
+    OUTPUT_VARIABLE GIT_VERSION
+    ERROR_QUIET
+)
+string(STRIP "${GIT_VERSION}" GIT_VERSION)
+string(REGEX REPLACE "^v" "" GIT_VERSION "${GIT_VERSION}")
+if ("${GIT_VERSION}" STREQUAL "")
+  set(GIT_VERSION "0.0.0")
+endif()
+
+message("Using git to tag version as: ${GIT_VERSION}")
 project(
   ${SKBUILD_PROJECT_NAME}
-  VERSION ${SKBUILD_PROJECT_VERSION}
+  VERSION ${GIT_VERSION}
   LANGUAGES CXX)
+# with scm if we are dirty or no tag, this won't build
+# project(
+#   ${SKBUILD_PROJECT_NAME}
+#   VERSION ${SKBUILD_PROJECT_VERSION}
+#   LANGUAGES CXX)
 
 include(FetchContent)
 FetchContent_Declare(
