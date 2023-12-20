@@ -35,6 +35,12 @@ find_package(Python REQUIRED COMPONENTS Interpreter Development.Module)
 add_library(pulchra src/cpp/pulchra.cpp)
 target_compile_features(pulchra PRIVATE cxx_std_11)
 set_property(TARGET pulchra PROPERTY POSITION_INDEPENDENT_CODE ON)
+# Windows cannot handle this file and tries to optimize it too hard
+if(MSVC)
+  set_source_files_properties(src/cpp/pulchra.cpp PROPERTIES COMPILE_FLAGS /Od)
+# else()
+#   set_source_files_properties(src/cpp/pulchra.cpp PROPERTIES COMPILE_FLAGS -O0)
+endif()
 install(TARGETS pulchra DESTINATION pulchra)
 
 python_add_library(_pypulchra MODULE src/python/pypulchra_bindings.cpp WITH_SOABI)
